@@ -43,7 +43,7 @@ public class Solution {
         int index = 0;
         for (int i = 0; i < superList.size(); i++) {
 
-            if (n >= superList.get(i).length()) {
+            if (n > superList.get(i).length()) {
                 n = superList.get(i).length();
                 index = i;
             }
@@ -58,7 +58,7 @@ public class Solution {
         int index = 0;
         for (int i = 0; i < superList.size(); i++) {
 
-            if (n <= superList.get(i).length()) {
+            if (n < superList.get(i).length()) {
                 n = superList.get(i).length();
                 index = i;
             }
