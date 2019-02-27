@@ -11,7 +11,10 @@ public class Solution {
         ArrayList<String> list = new ArrayList<String>();
         list.add("роза"); // 0
         list.add("лоза"); // 1
-        list.add("лира"); // 2
+        list.add("лира");
+        list.add("мера");
+        list.add("вода");
+        list.add("упор");// 2
         list = fix(list);
 
         for (String s : list) {
@@ -21,38 +24,42 @@ public class Solution {
 
     public static ArrayList<String> fix(ArrayList<String> list) {
 
-        ArrayList<Integer> dellete = new ArrayList<>();
-        ArrayList<Integer> multiplay2 = new ArrayList<>();
+        ArrayList<String> newList = new ArrayList<>();
 
 
         for (int i = 0; i < list.size(); i++) {
             String s = list.get(i);
-            int count = 0;
-            int dell = 0;
-            int multiplay = 0;
+
+
+            boolean p = false;
+            boolean l = false;
+
+
             char[] letters = s.toCharArray();
             for (int j = 0; j < letters.length; j++) {
                 if (letters[j] == 'р') {
-                    count++;
-                    dell++;
+
+                    p=true;
                 }
                 if (letters[j] == 'л') {
-                    count++;
-                    multiplay++;
+
+                    l=true;
                 }//напишите тут ваш код
             }
-            if (count > 1&&dell>0&&multiplay>0) {
+
+            if (p&&l==true) { newList.add(list.get(i));
 
             }
-            if (count < 2 && dell > 0) {
-                dellete.add(i);
-            }
+            else if (p==true){
 
-            if (count == 2 && multiplay > 0) {
-                multiplay2.add(i);
             }
+            else if (l==true) {
+                newList.add(list.get(i));
+                newList.add(list.get(i));
+            }
+            else newList.add(list.get(i));
 
         }
-        return list;
+        return newList;
     }
 }
